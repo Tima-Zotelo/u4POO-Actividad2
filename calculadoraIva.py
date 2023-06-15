@@ -6,10 +6,15 @@ class calculadoraIva:
 
     def __init__(self) -> None:
         self.__ventana = Tk()
-        self.__ventana.geometry('341x341')
+        self.__ventana.geometry('325x261')
         self.__ventana.title('Calculo de IVA')
         self.__ventana.resizable(0,0)
-        self.marco = ttk.Frame(self.__ventana, borderwidth=30, relief="raised", padding=(10,10)).grid(column=0, row=0, padx=5, pady=5, sticky=(N, S, E, W))
+        self.marco = ttk.Frame(self.__ventana, borderwidth=30, relief="raised", padding=(10,10))
+        self.marco.grid(column=0, row=0, padx=5, pady=5, sticky=(N, S, E, W))
+        self.marco.columnconfigure(0, weight=1)
+        self.marco.rowconfigure(0, weight=1)
+        self.marco['borderwidth'] = 30
+        self.marco['relief'] = 'sunken'
         opts = { 'padx': 5, 'pady': 5 , 'sticky': 'nswe' }
 
         self.precioLbl = ttk.Label (self.marco, text='Precio sin IVA').grid(row=0, column=0, **opts)
